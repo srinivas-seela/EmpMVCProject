@@ -7,8 +7,7 @@ namespace EmpMVCProj.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IEmployeeBL employeeBL;
-        
+        private readonly IEmployeeBL employeeBL;      
 
         public EmployeeController(IEmployeeBL employeeBL)
         {
@@ -17,7 +16,7 @@ namespace EmpMVCProj.Controllers
         // GET: Employee
         public ActionResult Index()
         {            
-            //ViewBag.Employees = employeeBL.GetAllEmployees();
+            ViewBag.Employees = employeeBL.GetAllEmployees();
             
             return View();
         }

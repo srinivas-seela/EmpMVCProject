@@ -13,8 +13,8 @@ namespace EmpMVC.Data.Repositories
     public class BaseRepository<T> : IBaseRepository<T>
         where T : class, IEntityBase , new()
     {
-        public ApplicationDBContext Context;
-        public DbSet<T> _entities;
+        protected ApplicationDBContext Context;
+        protected DbSet<T> _entities;
 
         public BaseRepository(ApplicationDBContext context)
         {

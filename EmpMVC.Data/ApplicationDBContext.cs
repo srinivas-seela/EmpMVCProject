@@ -8,7 +8,7 @@ namespace EmpMVC.Data
     {
         public ApplicationDBContext()
         {
-            Debug.Write(Database.Connection.ConnectionString);
+            
         }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Department> Departments { get; set; }

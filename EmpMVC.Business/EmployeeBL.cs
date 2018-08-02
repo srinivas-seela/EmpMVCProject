@@ -9,14 +9,17 @@ namespace EmpMVC.Business
 {
     public class EmployeeBL : IEmployeeBL
     {
-        private readonly IEmployeeRepository employeeRepository;
-        public EmployeeBL(IEmployeeRepository employeeRepository)
+        //private readonly IEmployeeRepository employeeRepository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public EmployeeBL(IUnitOfWork unitOfWork)
         {
-            this.employeeRepository = employeeRepository;
+            //this.employeeRepository = employeeRepository;
+            this._unitOfWork = unitOfWork;
         }
         public IEnumerable<Employee> GetAllEmployees()
         {
-            IEnumerable<EmpMVC.Data.Entities.Employee> employeesModel = employeeRepository.GetAll();
+            IEnumerable<EmpMVC.Data.Entities.Employee> employeesModel = _unitOfWork.EmployeeRepository.GetAll();
             IEnumerable<Employee> employees = Mapper.Map<IEnumerable<EmpMVC.Data.Entities.Employee>, IEnumerable<Employee>>(employeesModel);
             return employees;
         }

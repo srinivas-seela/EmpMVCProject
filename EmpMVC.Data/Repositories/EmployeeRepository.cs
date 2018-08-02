@@ -13,7 +13,13 @@ namespace EmpMVC.Data.Repositories
     {
         public EmployeeRepository(ApplicationDBContext context)
             :base(context)
-        { }        
+        { }
+        
+        public IEnumerable<Employee> GetEmployeesWithDepartment()
+        {
+            var employees = Context.Employees.ToList();
+            return employees;
+        }
 
         public ApplicationDBContext ApplicationDBContext
         {
